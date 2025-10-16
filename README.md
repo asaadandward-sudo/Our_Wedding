@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # weeding_invitation
 
 A new Flutter project.
@@ -14,3 +15,6 @@ A few resources to get you started if this is your first Flutter project:
 For help getting started with Flutter development, view the
 [online documentation](https://docs.flutter.dev/), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
+=======
+# my_wedding
+>>>>>>> 51b1e3c2ad7c126337726ca98546dded3b08033a
