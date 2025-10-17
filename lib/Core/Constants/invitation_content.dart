@@ -50,8 +50,8 @@ class InvitationContent {
   static const String send = 'إرسال'; 
 
   // Closing Section
-  static const String closingTitle = 'We hope to see you there';
-  static String closingDescription = 'We can\'t wait to celebrate with you on ${coupleData.date}';
+  static const String closingTitle = 'So it begins';
+  static String closingDescription = 'We can\'t wait to celebrate with you';
   static const String addToCalendar = 'أضافة الي التقويم  ←  ';
 
 

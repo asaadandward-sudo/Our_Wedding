@@ -15,25 +15,16 @@ class InvitationTypography {
   }) {
     final textColor = color ?? InvitationColors.textPrimary;
     switch (fontFamily.toLowerCase()) {
-      case 'parkavenue':
-        return TextStyle(
-          fontFamily: 'ParkAvenue',
+      case 'ffl':
+        return GoogleFonts.playfairDisplaySc(
           fontSize: size,
           fontWeight: weight,
           color: textColor,
           height: height,
         );
 
-      case 'cormorant':
-        return GoogleFonts.cormorantGaramond(
-          fontSize: size,
-          fontWeight: weight,
-          color: textColor,
-          height: height,
-        );
-      
-      case 'lateef':
-        return GoogleFonts.lateef(
+      case 'fancy':
+        return GoogleFonts.parisienne(
           fontSize: size,
           fontWeight: weight,
           color: textColor,
@@ -59,39 +50,39 @@ class InvitationTypography {
   }
 
   static TextStyle get englishTitle => _font(
-        fontFamily: 'parkavenue',
+        fontFamily: 'ffl',
         size: 50,
-        weight: FontWeight.w600,
+        weight: FontWeight.w400,
         height: 2,
         color: InvitationColors.greenBlack
       );
 
   static TextStyle get englishSubtitle => _font(
-        fontFamily: 'parkavenue',
+        fontFamily: 'ffl',
         size: 35,
-        weight: FontWeight.w600,
+        weight: FontWeight.w400,
         color: InvitationColors.textPrimary,
         height: 1.7
       );
 
   static TextStyle get englishBody => _font(
-        fontFamily: 'cormorant',
+        fontFamily: 'ffl',
         size: 25,
         height: 1.5,
-        weight: FontWeight.w500,
+        weight: FontWeight.w400,
         color: InvitationColors.textPrimary
       );
 
   static TextStyle get englishCaption => _font(
-        fontFamily: 'cormorant',
+        fontFamily: 'fancy',
         size: 15,
-        weight: FontWeight.w300,
-        color: InvitationColors.textPrimary.withOpacity(0.7),
+        weight: FontWeight.w400,
+        color: InvitationColors.textPrimary.withOpacity(0.8),
         height: 1.3
       );
 
   static TextStyle get englishButton => _font(
-        fontFamily: 'cormorant',
+        fontFamily: 'ffl',
         size: 20,
         weight: FontWeight.w400,
         color: InvitationColors.textSecondary,
@@ -103,7 +94,7 @@ class InvitationTypography {
 
 
   static TextStyle arabicTitle = _font(
-        fontFamily: 'lateef',
+        fontFamily: 'scheherazade',
         size: 50,
         weight: FontWeight.w500,
         height: 2,

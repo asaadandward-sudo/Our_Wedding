@@ -10,6 +10,7 @@ import 'package:weeding_invitation/Core/Utilities/selectable_text_widget.dart';
 import 'package:weeding_invitation/Data/Models/guest.dart';
 import 'package:weeding_invitation/Presentation/Components/invitation_button.dart';
 import 'package:weeding_invitation/Presentation/Components/custom_text_field.dart';
+import 'package:weeding_invitation/Core/Utilities/invitation_sizes.dart';
 
 class RSVPFormSection extends StatefulWidget {
   final Function(Guest) onSubmit;
@@ -83,13 +84,12 @@ class _RSVPFormSectionState extends State<RSVPFormSection> {
   @override
   Widget build(BuildContext context) {
 
-    double bodyFontSize = InvitationHelper.setSize(context: context, forMobile: 54.sp, forTablet: 30.sp, forDesktop: 20.sp);
-    double titleFontSize = InvitationHelper.setSize(context: context, forMobile: 120.sp, forTablet: 70.sp, forDesktop: 50.sp);
-    double captionFontSize = InvitationHelper.setSize(context: context, forMobile: 40.sp, forTablet: 20.sp, forDesktop: 15.sp);
-    double subtitleFontSize = InvitationHelper.setSize(context: context, forMobile: 45.sp, forTablet: 28.sp, forDesktop: 19.sp);
+    double titleFontSize = InvitationSizes.of(context).titleL();
+    double captionFontSize = InvitationSizes.of(context).caption();
+    double subtitleFontSize = InvitationSizes.of(context).subtitle();
 
     return Container(
-      color: InvitationColors.backgroundSecondary,
+      color: Colors.transparent,
       padding: InvitationHelper.setMainPadding(context: context),
       child: Column(
         children: [
@@ -129,7 +129,7 @@ class _RSVPFormSectionState extends State<RSVPFormSection> {
                     SelectableTextWidget(
                       arabicText: InvitationContent.attendingLabel,
                       arabicTextStyle: InvitationTypography.arabicSubtitle.copyWith(
-                        fontSize: subtitleFontSize
+                        fontSize: InvitationSizes.of(context).subtitle()
                       ),
                       textAlign: TextAlign.center,
                       textType: TextLanguageType.arabic,
@@ -151,7 +151,7 @@ class _RSVPFormSectionState extends State<RSVPFormSection> {
                         SelectableTextWidget(
                           arabicText: InvitationContent.yesLabel,
                           arabicTextStyle: InvitationTypography.arabicBody.copyWith(
-                            fontSize: bodyFontSize
+                            fontSize: InvitationSizes.of(context).body()
                           ),
                           textAlign: TextAlign.center,
                           textType: TextLanguageType.arabic,
@@ -172,7 +172,7 @@ class _RSVPFormSectionState extends State<RSVPFormSection> {
                         SelectableTextWidget(
                           arabicText: InvitationContent.noLabel,
                           arabicTextStyle: InvitationTypography.arabicBody.copyWith(
-                            fontSize: bodyFontSize
+                            fontSize: InvitationSizes.of(context).body()
                           ),
                           textAlign: TextAlign.center,
                           textType: TextLanguageType.arabic,
@@ -191,7 +191,7 @@ class _RSVPFormSectionState extends State<RSVPFormSection> {
                     child: SelectableTextWidget(
                       arabicText: InvitationContent.howManyAttendeesLabel,
                       arabicTextStyle: InvitationTypography.arabicSubtitle.copyWith(
-                        fontSize: subtitleFontSize
+                        fontSize: InvitationSizes.of(context).subtitle()
                       ),
                       textAlign: TextAlign.right,
                       textType: TextLanguageType.arabic,
@@ -204,7 +204,7 @@ class _RSVPFormSectionState extends State<RSVPFormSection> {
                       spacing: 8,
                       children: _attendeeOptions.map((count) {
                         return ChoiceChip(
-                          backgroundColor: Colors.transparent,
+                          backgroundColor: Colors.white,
                           elevation: 0,
                           label: Text(count.toString()),
                           selected: _attendeesCount == count,
@@ -228,7 +228,7 @@ class _RSVPFormSectionState extends State<RSVPFormSection> {
                   child: SelectableTextWidget(
                       arabicText: InvitationContent.messageLabel,
                       arabicTextStyle: InvitationTypography.arabicSubtitle.copyWith(
-                        fontSize: subtitleFontSize
+                        fontSize: InvitationSizes.of(context).subtitle()
                       ),
                       textAlign: TextAlign.right,
                       textType: TextLanguageType.arabic,
@@ -271,10 +271,10 @@ class _RSVPFormSectionState extends State<RSVPFormSection> {
                     children: [
                       // لوحة التوقيع
                       ClipRRect(
-                        borderRadius: BorderRadius.circular(60.r),
+                        borderRadius: BorderRadius.circular(16),
                         child: Signature(
                           controller: _signaturePadController,
-                          backgroundColor: InvitationColors.backgroundSecondary,
+                          backgroundColor: Colors.white,
                         ),
                       ),
     
@@ -311,7 +311,7 @@ class _RSVPFormSectionState extends State<RSVPFormSection> {
                             SelectableTextWidget(
                             arabicText: InvitationContent.signatureHint,
                             arabicTextStyle: InvitationTypography.arabicCaption.copyWith(
-                              fontSize: captionFontSize
+                              fontSize: InvitationSizes.of(context).caption()
                             ),
                             textAlign: TextAlign.center,
                             textType: TextLanguageType.arabic,
@@ -331,7 +331,7 @@ class _RSVPFormSectionState extends State<RSVPFormSection> {
                   child: InvitationButton(
                     text: InvitationContent.send,
                     onPressed: _submitForm,
-                    backgroundColor: InvitationColors.greenBlack,
+                    backgroundColor: InvitationColors.textPrimary,
                     borderWidth: 0,
                     textColor: InvitationColors.backgroundPrimary,
                   ),

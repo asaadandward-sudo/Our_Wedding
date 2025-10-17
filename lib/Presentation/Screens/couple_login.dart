@@ -12,6 +12,7 @@ import 'package:weeding_invitation/Presentation/Components/custom_text_field.dar
 import 'package:weeding_invitation/Presentation/Components/invitation_button.dart';
 import 'package:weeding_invitation/Presentation/Components/invitation_top_bar.dart';
 import 'package:weeding_invitation/Core/Navigation/navigation_service.dart';
+import 'package:weeding_invitation/Core/Utilities/invitation_sizes.dart';
 
 class CoupleLogin extends StatefulWidget {
   const CoupleLogin({super.key});
@@ -34,13 +35,11 @@ class _CoupleLoginScreenState extends State<CoupleLogin> {
 
   @override
   Widget build(BuildContext context) {
-    double bodyFontSize = InvitationHelper.setSize(
-        context: context, forMobile: 60.sp, forTablet: 30.sp, forDesktop: 20.sp);
-    double titleFontSize = InvitationHelper.setSize(
-        context: context, forMobile: 120.sp, forTablet: 70.sp, forDesktop: 50.sp);
+    double bodyFontSize = InvitationSizes.of(context).bodyXL();
+    double titleFontSize = InvitationSizes.of(context).titleL();
 
     return Scaffold(
-      backgroundColor: InvitationColors.backgroundSecondary,
+      backgroundColor: InvitationColors.backgroundPrimary,
       body: BlocConsumer<CouplesCubit, CouplesState>(
         listener: (context, state) {
           if (state is CouplesLoading && state.showDialog) {
@@ -152,7 +151,7 @@ class _CoupleLoginScreenState extends State<CoupleLogin> {
                                           );
                                     }
                                   },
-                                  backgroundColor: InvitationColors.greenBlack,
+                                  backgroundColor: InvitationColors.textPrimary,
                                   borderWidth: 0,
                                   textColor: InvitationColors.backgroundPrimary,
                                 ),

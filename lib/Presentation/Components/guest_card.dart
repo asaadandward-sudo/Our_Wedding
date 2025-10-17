@@ -1,11 +1,11 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:weeding_invitation/Core/Utilities/invitation_helper.dart';
 import 'package:weeding_invitation/Core/Constants/invitation_colors.dart';
 import 'package:weeding_invitation/Core/Constants/invitation_content.dart';
 import 'package:weeding_invitation/Core/Utilities/invitation_typography.dart';
 import 'package:weeding_invitation/Core/Utilities/selectable_text_widget.dart';
+import 'package:weeding_invitation/Core/Utilities/invitation_sizes.dart';
 
 class GuestCard extends StatelessWidget {
   final String guestName;
@@ -25,37 +25,21 @@ class GuestCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double bodyFontSize = InvitationHelper.setSize(
-      context: context,
-      forMobile: 50.sp,
-      forTablet: 30.sp,
-      forDesktop: 20.sp,
-    );
-    double titleFontSize = InvitationHelper.setSize(
-      context: context,
-      forMobile: 80.sp,
-      forTablet: 40.sp,
-      forDesktop: 25.sp,
-    );
-    double captionFontSize = InvitationHelper.setSize(
-      context: context,
-      forMobile: 45.sp,
-      forTablet: 25.sp,
-      forDesktop: 18.sp,
-    );
+    final sizes = InvitationSizes.of(context);
 
     return Container(
       margin: EdgeInsets.symmetric(vertical: 12.h, horizontal: 16.w),
       padding: EdgeInsets.all(20),
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(5),
+        borderRadius: BorderRadius.circular(15),
+        border: Border.all(
+          width: 0.7,
+          color: InvitationColors.neutral900
+        ),
         image: DecorationImage(
-          image: const AssetImage('assets/image/Minimalist Thank You Card .png'),
+          image: AssetImage('assets/image/minimalist_card.png'),
           fit: BoxFit.cover,
-          colorFilter: ColorFilter.mode(
-            InvitationColors.deepEmerald.withOpacity(0.4),
-            BlendMode.darken,
-          ),
+          
         ),
       ),
       child: Stack(
@@ -71,8 +55,8 @@ class GuestCard extends StatelessWidget {
                 SelectableTextWidget(
                   arabicText: guestName,
                   arabicTextStyle: InvitationTypography.arabicTitle.copyWith(
-                    fontSize: titleFontSize,
-                    color: Colors.white,
+                    fontSize: sizes.titleL(),
+                    color: InvitationColors.textPrimary,
                   ),
                   textAlign: TextAlign.right,
                   textType: TextLanguageType.arabic,
@@ -86,15 +70,15 @@ class GuestCard extends StatelessWidget {
                       ? message
                       : InvitationContent.noMessageProvided,
                   arabicTextStyle: InvitationTypography.arabicBody.copyWith(
-                    fontSize: bodyFontSize,
-                    color: Colors.white.withOpacity(0.9),
+                    fontSize: sizes.body(),
+                    color:  InvitationColors.textPrimary,
                     height: 1.4,
                   ),
                   textAlign: TextAlign.right,
                   textType: TextLanguageType.arabic,
                 ),
 
-                SizedBox(height: 50),
+                const SizedBox(height: 50),
 
                 // 🟢 Attending Chip
                 Container(
@@ -110,7 +94,7 @@ class GuestCard extends StatelessWidget {
                         ? InvitationContent.attendingYes
                         : InvitationContent.attendingNo,
                     arabicTextStyle: InvitationTypography.arabicCaption.copyWith(
-                      fontSize: captionFontSize - 5,
+                      fontSize: sizes.caption(),
                       color: InvitationColors.backgroundSecondary,
                     ),
                     textAlign: TextAlign.center,
@@ -118,15 +102,15 @@ class GuestCard extends StatelessWidget {
                   ),
                 ),
 
-                SizedBox(height: 10),
+                const SizedBox(height: 10),
 
                 // 🧍‍♂️ عدد الحاضرين
                 SelectableTextWidget(
                   arabicText:
                       '${InvitationContent.attendeeCountLabel} $numberOfGuests',
                   arabicTextStyle: InvitationTypography.arabicBody.copyWith(
-                    fontSize: bodyFontSize - 5,
-                    color: Colors.white,
+                    fontSize: sizes.bodySm() + 2,
+                    color:  InvitationColors.textPrimary,
                   ),
                   textAlign: TextAlign.right,
                   textType: TextLanguageType.arabic,
@@ -145,8 +129,8 @@ class GuestCard extends StatelessWidget {
                 SelectableTextWidget(
                   arabicText: 'التوقيع',
                   arabicTextStyle: InvitationTypography.arabicCaption.copyWith(
-                    fontSize: captionFontSize,
-                    color: InvitationColors.deepEmerald,
+                    fontSize: sizes.caption(),
+                    color:  InvitationColors.textPrimary,
                   ),
                   textAlign: TextAlign.center,
                   textType: TextLanguageType.arabic,

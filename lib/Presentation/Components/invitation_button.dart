@@ -37,7 +37,7 @@ class InvitationButton extends StatelessWidget {
         foregroundColor: textColor ?? InvitationColors.deepEmerald,
         side: BorderSide(
           color: InvitationColors.greenBlack,
-          width: borderWidth ?? 2.5,
+          width: borderWidth ?? 2,
         ),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(20),

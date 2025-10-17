@@ -60,7 +60,7 @@ class DevelopedBy extends StatelessWidget {
 
               // Separator
               SelectableTextWidget(
-                englishText: '   --   ',
+                englishText: '   -   ',
                 englishTextStyle: InvitationTypography.englishCaption.copyWith(
                   color: InvitationColors.textSecondary.withOpacity(0.6),
                   fontSize: fontSize

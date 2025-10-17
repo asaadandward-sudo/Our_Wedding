@@ -92,10 +92,13 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-  fonts:
-    - family: ParkAvenue
-      fonts:
-        - asset: assets/fonts/Park Avenue.otf
+  # fonts:
+  #   - family: ParkAvenue
+  #     fonts:
+  #       - asset: assets/fonts/Park Avenue.otf
+  #   - family: Ffl
+  #     fonts: 
+  #       - asset: assets/fonts/BodoniFLF-Roman.ttf
 
   #
   # For details regarding fonts from package dependencies,

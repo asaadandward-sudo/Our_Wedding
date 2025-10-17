@@ -2,20 +2,19 @@ import 'package:flutter/material.dart';
 
 class InvitationColors {
   // TEXT
-  static const Color textPrimary = Color(0xFF2B2B2B);
-  static const Color textSecondary = Color(0xFF4E6650);
+  static const Color textPrimary = Color(0xFF0A0703);
+  static const Color textSecondary = Color(0xFF140D07);
 
   // ERROR
   static const Color error = Color.fromARGB(255, 221, 73, 73);
   static const Color error30 = Color.fromARGB(255, 224, 80, 80);
 
   // BACKGROUND
-  static const Color backgroundPrimary = Color(0xFFD0F0C0);
-  static const Color backgroundSecondary = Color(0xFFFFFFFF);
+  static const Color backgroundPrimary = Color(0xFFFEF6EE);
+  static const Color backgroundSecondary = Color(0xFFFEF6EE);
 
   // BORDERS
   static const Color border = Color(0xFF2B2B2B);
-  static const Color borderMint = Color(0xFFBEE3A8);
 
   // GREENS
   static const Color forestGreen = Color(0xFF0B3D2E);

@@ -9,6 +9,8 @@ import 'package:weeding_invitation/Core/Utilities/invitation_helper.dart';
 import 'package:weeding_invitation/Core/Utilities/invitation_typography.dart';
 import 'package:weeding_invitation/Core/Utilities/selectable_text_widget.dart';
 import 'package:weeding_invitation/Presentation/Screens/couple_login.dart';
+import 'package:weeding_invitation/Core/Utilities/invitation_sizes.dart';
+import 'package:weeding_invitation/Presentation/Components/section.dart';
 
 class HeaderSection extends StatelessWidget {
   const HeaderSection({super.key});
@@ -16,15 +18,14 @@ class HeaderSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     
-    double bodyFontSize = InvitationHelper.setSize(context: context, forMobile: 54.sp, forTablet: 30.sp, forDesktop: 20.sp);
-    double titleFontSize = InvitationHelper.setSize(context: context, forMobile: 160.sp, forTablet: 70.sp, forDesktop: 50.sp);
-    double captionFontSize = InvitationHelper.setSize(context: context, forMobile: 50.sp, forTablet: 30.sp, forDesktop: 25.sp);
     int adminTapCount = 0;
     Timer? tapResetTimer;
 
-    return Container(
-      color: InvitationColors.backgroundSecondary,
-      padding: InvitationHelper.setMainPadding(context: context),
+    return Section(
+      backgroundImage: DecorationImage(
+        image: AssetImage('assets/image/design1h.png'),
+        fit: (MediaQuery.of(context).size.width < 700) ? BoxFit.cover : BoxFit.fitHeight,
+      ),
       child: Column(
         children: [
           SizedBox(
@@ -38,23 +39,13 @@ class HeaderSection extends StatelessWidget {
           SelectableTextWidget(
             arabicText: InvitationContent.initialQuote,
             arabicTextStyle: InvitationTypography.arabicBody.copyWith(
-              fontSize: bodyFontSize
+              fontSize: InvitationSizes.of(context).body()
             ),
             textAlign: TextAlign.center,
             textType: TextLanguageType.arabic,
           ),
 
           SizedBox(height: 60.h),
-
-          SelectableTextWidget(
-            englishText: InvitationContent.inviteHeader,
-            englishTextStyle: InvitationTypography.englishBody.copyWith(
-              fontSize: captionFontSize
-            ),
-            textAlign: TextAlign.center,
-            textType: TextLanguageType.english,
-          ),
-
 
           Padding(
             padding: EdgeInsets.symmetric(vertical: 50.h),
@@ -82,6 +73,7 @@ class HeaderSection extends StatelessWidget {
                 child: Image(
                   image: AssetImage(InvitationContent.coupleData.logo),
                   fit: BoxFit.contain,
+                  filterQuality: FilterQuality.low,
                 ),
               ),
             ),
@@ -99,7 +91,7 @@ class HeaderSection extends StatelessWidget {
                   SelectableTextWidget(
                     arabicText: InvitationContent.coupleData.day,
                     arabicTextStyle: InvitationTypography.arabicBody.copyWith(
-                      fontSize: bodyFontSize
+                  fontSize: InvitationSizes.of(context).body()
                     ),
                     textAlign: TextAlign.center,
                     textType: TextLanguageType.arabic,
@@ -108,7 +100,7 @@ class HeaderSection extends StatelessWidget {
                   SelectableTextWidget(
                     arabicText: '${InvitationContent.coupleData.time.split(' ')[0]} صباحاً',
                     arabicTextStyle: InvitationTypography.arabicBody.copyWith(
-                      fontSize: bodyFontSize
+                  fontSize: InvitationSizes.of(context).body()
                     ),
                     textAlign: TextAlign.center,
                     textType: TextLanguageType.arabic,
@@ -129,7 +121,7 @@ class HeaderSection extends StatelessWidget {
               SelectableTextWidget(
                 arabicText: InvitationContent.coupleData.date.split(' ')[0],
                 arabicTextStyle: InvitationTypography.englishTitle.copyWith(
-                  fontSize: titleFontSize
+                  fontSize: InvitationSizes.of(context).titleXL()
                 ),
                 textAlign: TextAlign.center,
                 textType: TextLanguageType.arabic,
@@ -149,7 +141,7 @@ class HeaderSection extends StatelessWidget {
                   SelectableTextWidget(
                     arabicText: InvitationContent.coupleData.date.split(' ')[1],
                     arabicTextStyle: InvitationTypography.arabicBody.copyWith(
-                      fontSize: bodyFontSize
+                  fontSize: InvitationSizes.of(context).body()
                     ),
                     textAlign: TextAlign.center,
                     textType: TextLanguageType.arabic,
@@ -160,7 +152,7 @@ class HeaderSection extends StatelessWidget {
                   SelectableTextWidget(
                     englishText: InvitationContent.coupleData.date.split(' ')[2],
                     englishTextStyle: InvitationTypography.arabicBody.copyWith(
-                      fontSize: bodyFontSize
+                  fontSize: InvitationSizes.of(context).body()
                     ),
                     textAlign: TextAlign.center,
                     textType: TextLanguageType.english,
@@ -178,7 +170,7 @@ class HeaderSection extends StatelessWidget {
           SelectableTextWidget(
             arabicText: '${InvitationContent.coupleData.church} ${InvitationContent.coupleData.city} ${InvitationContent.coupleData.state} \n${InvitationContent.coupleData.locationDetails}',
             arabicTextStyle: InvitationTypography.arabicBody.copyWith(
-              fontSize: bodyFontSize
+              fontSize: InvitationSizes.of(context).body()
             ),
             textAlign: TextAlign.center,
             textType: TextLanguageType.arabic,
@@ -190,7 +182,7 @@ class HeaderSection extends StatelessWidget {
           SelectableTextWidget(
             arabicText: InvitationContent.coupleData.details,
             arabicTextStyle: InvitationTypography.arabicBody.copyWith(
-              fontSize: bodyFontSize
+              fontSize: InvitationSizes.of(context).body()
             ),
             textAlign: TextAlign.center,
             textType: TextLanguageType.arabic,

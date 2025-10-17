@@ -50,6 +50,15 @@ class CouplesCubit extends Cubit<CouplesState> {
     }
   }
 
+  Future<void> signInWithGoogleRedirect() async {
+    try {
+      final googleProvider = GoogleAuthProvider();
+      await _auth.signInWithRedirect(googleProvider);
+    } catch (e) {
+      emit(CouplesError(InvitationContent.loginFailed));
+    }
+  }
+
   Future<void> checkAuthStatus() async {
     emit(CouplesLoading(showDialog: false));
     try {

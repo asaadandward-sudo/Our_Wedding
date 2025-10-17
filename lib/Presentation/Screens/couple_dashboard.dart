@@ -11,6 +11,7 @@ import 'package:weeding_invitation/Presentation/Components/guest_card.dart';
 import 'package:weeding_invitation/Logic/Cubit/couples_cubit.dart';
 import 'package:weeding_invitation/Logic/Cubit/couples_state.dart';
 import 'package:weeding_invitation/Core/Navigation/navigation_service.dart';
+import 'package:weeding_invitation/Core/Utilities/invitation_sizes.dart';
 
 class CoupleDashboard extends StatefulWidget {
   const CoupleDashboard({super.key});
@@ -28,13 +29,11 @@ class _CoupleDashboardScreenState extends State<CoupleDashboard> {
 
   @override
   Widget build(BuildContext context) {
-    double bodyFontSize = InvitationHelper.setSize(
-        context: context, forMobile: 50.sp, forTablet: 30.sp, forDesktop: 20.sp);
-    double titleFontSize = InvitationHelper.setSize(
-        context: context, forMobile: 120.sp, forTablet: 70.sp, forDesktop: 50.sp);
+    double bodyFontSize = InvitationSizes.of(context).bodySm();
+    double titleFontSize = InvitationSizes.of(context).titleL();
 
     return Scaffold(
-      backgroundColor: InvitationColors.backgroundSecondary,
+      backgroundColor: InvitationColors.backgroundPrimary,
       body: BlocConsumer<CouplesCubit, CouplesState>(
         listener: (context, state) {
           if (state is CouplesError) {
@@ -48,7 +47,7 @@ class _CoupleDashboardScreenState extends State<CoupleDashboard> {
         builder: (context, state) {
           if (state is CouplesLoading) {
             return Scaffold(
-              backgroundColor: InvitationColors.backgroundSecondary,
+              backgroundColor: InvitationColors.backgroundPrimary,
               body: Center(
                 child: SizedBox(
                   width: InvitationHelper.setWidth(context: context, forMobile: 220.r, forTablet: 120.r, forDesktop: 120.r),
@@ -148,8 +147,7 @@ class _CoupleDashboardScreenState extends State<CoupleDashboard> {
   }
 
   Widget _buildGuestList(CouplesState state) {
-    double bodyFontSize = InvitationHelper.setSize(
-        context: context, forMobile: 50.sp, forTablet: 30.sp, forDesktop: 20.sp);
+    double bodyFontSize = InvitationSizes.of(context).bodySm();
         
     if (state is CouplesGuestsLoaded) {
       final guests = state.guests;

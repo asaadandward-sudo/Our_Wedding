@@ -26,9 +26,9 @@ class InvitationHelper {
 
   static EdgeInsets setMainPadding({required BuildContext context}) {
     double w = MediaQuery.of(context).size.width;
-    return (w > 700)? (w > 1200)? const EdgeInsets.symmetric(vertical: 100, horizontal: 350)
-            : const EdgeInsets.symmetric(vertical: 80, horizontal: 180)
-        : const EdgeInsets.symmetric(vertical: 70, horizontal: 25);
+    return (w > 700)? (w > 1200)? const EdgeInsets.symmetric(vertical: 70, horizontal: 400)
+            : const EdgeInsets.symmetric(vertical: 60, horizontal: 170)
+        : const EdgeInsets.symmetric(vertical: 50, horizontal: 25);
   }
 
 
@@ -87,6 +87,10 @@ class InvitationHelper {
     if (!await launchUrl(whatsappUri, mode: LaunchMode.externalApplication)) {
       throw Exception('Could not open WhatsApp');
     }
+  }
+
+  static String setBGs({required String mobilBG, required String deskBG, required BuildContext context}) {
+    return (MediaQuery.of(context).size.width > 700)? deskBG: mobilBG;
   }
 
 

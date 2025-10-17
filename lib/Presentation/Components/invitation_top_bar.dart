@@ -14,7 +14,7 @@ class InvitationTopBar extends StatelessWidget {
       width: double.infinity,
       padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 20),
       decoration: BoxDecoration(
-        color: InvitationColors.forestGreen.withOpacity(0.7),
+        color: InvitationColors.textPrimary.withOpacity(0.9),
         borderRadius: BorderRadius.circular(25),
       ),
       child: Row(
